@@ -1,0 +1,1453 @@
+/* ==================================
+			Table of contents
+   ==================================
+	1.Color Palette
+	2.Global
+	3.Global Navigation Bar & Footer
+    4.Index
+        4.1.Hero
+        4.2.NEWS
+        4.3.Facebook
+        4.4.Achievement
+        4.5.Photoset
+    5.Login Page
+    6.Curriculum Page
+        6.1.Curriculum Parallax
+        6.2.Curriculum Info
+    7.Personnel Page
+        7.1.Personnel Parallax
+        7.2.Modal
+    8.Contact Page
+    9.About Page
+    10.Setting Page
+    11.Achievement Page
+
+
+
+
+
+
+
+
+
+
+*/
+
+/* ------------------------------------------------------------------------ */
+
+/* ==================================
+		     1.Color Palette
+   ==================================
+Text #494949, #696868
+Object #8A8A8A
+Background #E6E6E6
+Accent #8FA6FF
+Orange #ff7119
+
+
+
+
+
+
+*/
+
+/* ------------------------------------------------------------------------ */
+
+/* ==================================
+		         2.Global
+   ================================== */
+
+.cd-top {
+    bottom: 30px !important;
+}
+
+body {
+    font-family: 'Prompt', sans-serif !important;
+    padding-right: 0px !important;
+    background-color: #F6F6F6;
+}
+
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+}
+
+body.modal-open {
+    margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+    body.modal-open {
+        margin-right: 0px !important;
+    }
+}
+
+#main {
+    transform: translate(0px, 40px);
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+}
+
+#mainfade {
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+}
+
+.card {
+    transition: 0.3s !important;
+    -moz-transition: 0.3s !important;
+    -ms-transition: 0.3s !important;
+    -webkit-transition: 0.3s !important;
+}
+
+.card:hover {
+    transform: scale(1.01, 1.01);
+}
+
+/* :TODO Button state color hover,focus,active etc.; */
+
+.btn-primary {
+    background-color: #8A8A8A;
+    border-color: #8A8A8A;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ff7119;
+    border-color: #ff7119;
+}
+
+.btn-primary:active {
+    color: #DDD;
+    background-color: #cf5c15;
+    border-color: #ff7119;
+}
+
+.shadow-5 {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(../img/preload.gif) center no-repeat #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (min-width: 450px) {
+    .loader {
+        display: none;
+    }
+}
+
+a {
+    color: #494949;
+}
+
+a:hover {
+    color: #FF7119;
+}
+
+.img-round {
+    border-radius: 50% !important;
+}
+
+.shadow-5-hover {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
+    transition: box-shadow 0.3s;
+}
+
+.shadow-5-hover:hover {
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.7);
+}
+
+.no-decoration:hover {
+    text-decoration: none;
+}
+
+.display-none {
+    display: none;
+}
+
+.errorText {
+    color: red;
+    font-size: 17px;
+}
+
+.form-control:focus {
+    border-color: rgba(255, 113, 25, 0.5);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 113, 25, 0.5));
+}
+
+i {
+    font-size: 24px !important;
+}
+
+.fa-check-circle {
+    color: green;
+}
+
+.fa-times-circle {
+    color: red;
+}
+
+.fa-circle-o-notch {
+    color: #ff7119;
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* ==================================
+    3.Global Navigation Bar & Footer
+   ================================== */
+
+.navbar {
+    background-color: #ff7119;
+    box-shadow: 0 0 5px 0;
+    height: 55px;
+}
+
+.nav-link {
+    color: #FFFFFF !important;
+    text-shadow: 1px 0px 4px #666666;
+}
+
+.nav-link:hover {
+    color: #DEDEDE !important;
+    text-shadow: 0px 0px 0px #666666;
+}
+
+.navbar-brand>img {
+    width: auto;
+    height: 40px;
+}
+
+.navbar-brand:hover {
+    transform: translate(0px, 1px);
+}
+
+.navbar-toggler {
+    margin-top: 4px;
+}
+
+.navbar-light span.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#FFFFFF' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    color: white;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: #ff7119;
+}
+
+.navbar-proPic {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navbar-right {
+    border-radius: 20px;
+}
+
+.navbar-right:hover {
+    background-color: #D96015;
+    box-shadow: 0px 2px -4px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-right:focus {
+    background-color: #D96015;
+    box-shadow: 0px 2px -4px rgba(0, 0, 0, 0.8);
+}
+
+.hiddenCaret>.dropdown-toggle::after {
+    display: none !important;
+}
+
+@media (max-width: 1200px) {
+    .navbar {
+        height: auto;
+    }
+}
+
+/* For Desktop */
+
+@media (min-width: 992px) {
+    .nav-item {
+        margin: 0 40px 0 40px;
+    }
+    .navbar-brand {
+        margin-left: 30px
+    }
+}
+
+footer {
+    padding: 30px;
+    background-color: #A8A8A8
+}
+
+footer ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+
+footer h3 {
+    margin-top: 15px;
+    color: #FFFFFF;
+    border-bottom: 3px solid;
+    border-color: #FFFFFF;
+}
+
+footer h4 {
+    color: #FFFFFF;
+}
+
+footer p {
+    color: #FFFFFF;
+}
+
+footer a {
+    color: #FFFFFF;
+}
+
+footer img {
+    width: auto;
+    height: 100px;
+}
+
+@media (min-width: 992px) {
+    footer .container-fluid {
+        padding: 15px 0 0 30px;
+    }
+    footer .link-padding {
+        padding: 15px 5% 30px 10%;
+    }
+    footer .no-padding {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+}
+
+.copyright-1 {
+    margin: 0px;
+    color: #FFFFFF;
+}
+
+.copyright-2 {
+    margin: 0px;
+    color: #FFFFFF;
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .copyright-1 {
+        display: none;
+    }
+    .copyright-2 {
+        display: inline;
+    }
+}
+
+/* Scroll to top Button */
+
+.cd-top {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: #696868 url(../img/cd-top-arrow.svg) no-repeat center 50%;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+    border-radius: 5px;
+}
+
+.cd-top:hover {
+    background: #FF7119 url(../img/cd-top-arrow.svg) no-repeat center 50%;
+}
+
+.cd-top.cd-is-visible,
+.cd-top.cd-fade-out,
+.no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    visibility: visible;
+    opacity: 1;
+}
+
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    opacity: .7;
+}
+
+.no-touch .cd-top:hover {
+    background-color: #0091FF;
+    opacity: 1;
+}
+
+@media only screen and (min-width: 768px) {
+    .cd-top {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .cd-top {
+        height: 40px;
+        width: 40px;
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* ==================================
+		         4.Index Page
+   ================================== */
+
+/* ++++++++++++++ 4.1.Hero ++++++++++++++ */
+
+#hero {
+    margin-bottom: 15px;
+    margin-top: 55px;
+}
+
+.carousel-indicators {
+    margin-top: 15px;
+    bottom: 0px;
+    position: static;
+}
+
+.carousel-indicators li {
+    max-width: 70px;
+    background-color: #E6E6E6;
+}
+
+.carousel-indicators .active {
+    background-color: #8A8A8A;
+}
+
+.carousel-caption {
+    text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* For Mobile */
+
+@media (max-width: 768px) {
+    #hero {
+        margin-top: 85px;
+    }
+    .carousel-caption h3{
+        font-size: 1.5rem;
+        text-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+    }
+    #hero>.container-fluid,
+    .col-sm-10,
+    .offset-sm-1 {
+        padding: 0px;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+    .carousel-indicators li {
+        max-width: 30px;
+        background-color: #E6E6E6;
+    }
+}
+
+/* For Desktop */
+
+@media (min-width: 600px) {
+    #hero>.container-fluid {
+        padding-top: 25px;
+    }
+}
+
+/* ++++++++++++++ 4.2.News ++++++++++++++ */
+
+#news {
+    margin-bottom: 20px;
+}
+
+.news-box h2 {
+    background: #696868 none repeat scroll 0 0;
+    color: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 -5px 0 -5px;
+    padding: 15px;
+    position: relative;
+    z-index: 9;
+}
+
+.news-box-content {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.news-box-content>.news-text>p {
+    border-bottom: 1px solid #E6E6E6;
+    padding: 20px 40px 20px 40px;
+    margin-bottom: 0;
+}
+
+.news-box-content>p {
+    padding: 20px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+/* For tablet and below */
+
+@media (max-width: 991px) {
+    .news-box-content>.news-text>p {
+        padding: 20px;
+    }
+}
+
+/* ++++++++++++++ 4.3.Facebook ++++++++++++++ */
+
+.fb-container {
+    overflow: hidden;
+}
+
+.fb-containeo>div {
+    margin: -2px -2px -2px -2px;
+}
+
+/* ++++++++++++++ 4.4.achievement ++++++++++++++ */
+
+#achievement {
+    background: url('../img/achievement.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 40px 0;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+#achievement .wrapper {
+    max-height: 500px;
+}
+
+#achievement h1 {
+    margin: auto;
+    bottom: 50%;
+    right: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    z-index: 5;
+}
+
+#achievement>.overlay:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#achievement2 {
+    background-color: #eaeaea;
+    padding-top: 30px;
+}
+
+.card {
+    border-width: 0px;
+    border-color: #E6E6E6;
+    height: 100%;
+}
+
+.card-padding {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.card-margin {
+    padding-bottom: 30px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+}
+
+.parallax-title {
+    position: absolute;
+    z-index: 99;
+}
+
+/* ++++++++++++++ 4.5.Photoset ++++++++++++++ */
+
+#activities {
+    background: url('../img/activities.png');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 40px 0;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+#activities .wrapper {
+    max-height: 500px;
+}
+
+#activities h1 {
+    margin: auto;
+    bottom: 50%;
+    right: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    z-index: 5;
+}
+
+#activities>.overlay:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.photoset-cell {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+
+.photoset-cell:hover {
+    opacity: 1;
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* ==================================
+		      5.Login Page
+   ================================== */
+
+#logo h3 {
+    color: #494949 !important;
+}
+
+.center-logo {
+    margin-top: 35px;
+}
+
+.welcome-text {
+    margin-top: 15px;
+}
+
+.login-box {
+    margin-top: 25px;
+    height: auto;
+    border-radius: 10px;
+    background: #FFFFFF none repeat scroll 0 0;
+    color: #494949;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    position: relative;
+    z-index: 9;
+}
+
+@media (max-width: 991px) {
+    .login-button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 600px) {
+    .box-padding {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .box-padding {
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+}
+
+.desk {
+    width: 50%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -99;
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .desk {
+        width: 75%;
+    }
+}
+
+@media (max-width: 600px) {
+    .desk {
+        width: 100%;
+    }
+}
+
+#loginForm button[type="button"] {
+    right: 0px;
+}
+
+/* ------------------------------------------------------------------------ */
+
+/* ==================================
+		      6.Curriculum page
+   ================================== */
+
+/* ++++++++++++++ 6.1.Parallax ++++++++++++++ */
+
+#bachelor {
+    margin: 30px 0px;
+}
+
+#master {
+    margin-bottom: 30px;
+}
+
+#curriculum-parallax {
+    margin-top: 55px;
+    background: url('../img/book.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 0;
+    color: white;
+}
+
+#curriculum-parallax .wrapper {
+    max-height: 500px;
+}
+
+#curriculum-parallax>.overlay:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#curriculum-parallax h1 {
+    margin: auto;
+    bottom: 50%;
+    right: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    z-index: 5;
+}
+
+/* ++++++++++++++ 6.2.Curriculum Info ++++++++++++++ */
+
+.curriculum-box h2 {
+    background: #696868 none repeat scroll 0 0;
+    color: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.7);
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 -5px 0 -5px;
+    padding: 15px;
+    position: relative;
+    z-index: 9;
+}
+
+.curriculum-box-content {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.curriculum-box-content>.curriculum-text>p {
+    border-bottom: 1px solid #E6E6E6;
+    padding: 20px 40px 20px 40px;
+    margin-bottom: 0;
+}
+
+.curriculum-box-content>p {
+    padding: 20px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+/* For tablet and below */
+
+@media (max-width: 991px) {
+    .curriculum-box-content>.curriculum-text>p {
+        padding: 20px;
+    }
+}
+
+/* ==================================
+		      7.Personnel page
+   ================================== */
+
+/* ++++++++++++++ 7.1.Parallax ++++++++++++++ */
+
+#teacher,
+#staff {
+    margin: 30px 0px;
+}
+
+#officer {
+    margin-bottom: 30px;
+}
+
+#personnel-parallax {
+    margin-top: 55px;
+    background: url('../img/chalk.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 0;
+    color: white;
+}
+
+#personnel-parallax .wrapper {
+    max-height: 500px;
+}
+
+#personnel-parallax>.overlay:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#personnel-parallax h1 {
+    margin: auto;
+    bottom: 50%;
+    right: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    z-index: 5;
+}
+
+#personnel-parallax2 {
+    background: url('../img/pencils.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 0;
+    color: white;
+}
+
+#personnel-parallax2 .wrapper {
+    max-height: 500px;
+}
+
+#personnel-parallax2>.overlay:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#personnel-parallax2 h1 {
+    margin: auto;
+    bottom: 50%;
+    right: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    z-index: 5;
+}
+
+/* ++++++++++++++ 7.2.Modal ++++++++++++++ */
+
+.modalpic-container img {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modalpic {
+    border-radius: calc(.25rem - 1px);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.modal-title {
+    font-size: 2vmax;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.modal-star {
+    font-size: 1.1vmax;
+    margin-top: 15px;
+}
+
+.modal-edu {
+    font-size: 1.1vmax;
+    margin-top: 8px;
+}
+
+.modal-title-eng {
+    font-size: 1.5vmax;
+    font-weight: lighter;
+    margin-top: 3px;
+    margin-bottom: 20px;
+}
+
+.modal-preload-box {
+    color: lightgray;
+    background-color: lightgray;
+}
+
+.modal-body {
+    padding: 10px 25px;
+}
+
+.modal-header-bot-round {
+    border-radius: calc(.25rem - 1px);
+}
+
+button.close {
+    font-size: 2rem;
+    font-weight: 500;
+    position: fixed;
+    top: 5px;
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .modal-header {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    body.modal-open {
+        margin-right: 0px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal-title {
+        font-size: 4.5vmin;
+        font-weight: bold;
+    }
+    .modal-title-eng {
+        font-size: 3.5vmin;
+        font-weight: lighter;
+    }
+    .modal-star {
+        font-size: 3.4vmin;
+        margin-top: 15px;
+    }
+    .modal-edu {
+        font-size: 3.4vmin;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-header {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+/* ==================================
+		      8.Contact Page
+   ================================== */
+
+.contact-icon {
+    width: 64px;
+    height: 64px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info {
+    padding-top: 3px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+/* ==================================
+                9.About Page
+   ================================== */
+
+#about-parallax {
+    margin-top: 55px;
+    background: url('../img/itekmitl.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 0;
+    color: white;
+}
+
+#about-parallax .wrapper {
+    max-height: 500px;
+}
+
+#about-parallax>.overlay:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#about-parallax h1 {
+    margin: auto;
+    bottom: 50%;
+    right: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    z-index: 5;
+}
+
+#about-header {
+    margin-top: 55px;
+    background-color: #ff7119;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    #about-ite-title h3 {
+        font-size: 23px;
+    }
+    #about-com,
+    #about-tele,
+    #about-line,
+    #about-elec {
+        padding: 0px 30px !important;
+    }
+    #about-com h4,
+    #about-tele h4,
+    #about-line h4,
+    #about-elec h4 {
+        font-size: 21px;
+        margin-bottom: 35px;
+    }
+    #about-com img,
+    #about-tele img,
+    #about-line img,
+    #about-elec img {
+        width: 30% !important;
+    }
+}
+
+@media (max-width: 512px) {
+    #about-com,
+    #about-tele,
+    #about-line,
+    #about-elec {
+        padding: 0px !important;
+    }
+    #about-com img,
+    #about-tele img,
+    #about-line img,
+    #about-elec img {
+        width: 50% !important;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        transition: width 0.3s;
+    }
+}
+
+#about-title,
+#about-title2,
+#about-title3 {
+    color: #fff;
+    opacity: 0;
+}
+
+#about-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    transition-delay: 0.7s;
+}
+
+#about-title,
+#about-title2,
+#about-title3,
+#about-title4 {
+    transition: opacity 1s ease-in-out;
+    transition-delay: 1.6s;
+}
+
+#about-ite {
+    padding: 60px 10px;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    transition-delay: 2.2s;
+    transform: translate(0px, 40px);
+}
+
+#about-ite-title {
+    background-color: #9a3634;
+    height: 75px;
+    padding-top: 24.5px;
+}
+
+#about-trio {
+    background-color: #ffe693;
+    padding: 60px 10px;
+}
+
+#about-com img,
+#about-tele img,
+#about-line img,
+#about-elec img {
+    width: 40%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: width 0.3s;
+}
+
+#about-com img:hover,
+#about-tele img:hover,
+#about-line img:hover,
+#about-elec img:hover {
+    width: 43%;
+}
+
+#about-com,
+#about-tele,
+#about-line,
+#about-elec {
+    padding: 0px 60px;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    transform: translate(0px, 40px);
+}
+
+#about-pre-curriculum {
+    background-color: #abd2f7;
+    padding-top: 60px;
+}
+
+#about-pre-curriculum-contents {
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    transform: translate(0px, 40px);
+}
+
+#about-pre-curriculum img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+#about-pre-curriculum p {
+    padding: 5px 20px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* ==================================
+            10.Setting Page
+   ================================== */
+
+#setting-page {
+    margin-top: 55px;
+}
+
+#profile-upload {
+    text-align: center;
+}
+
+#profile-upload>input {
+    display: none;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    vertical-align: middle;
+    text-align: center;
+    color: transparent;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+
+.profile-pic:hover {
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 10000;
+    color: #fff;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+
+.profile-pic span {
+    display: inline-block;
+    padding-top: 5.5em;
+    padding-bottom: 5.5em;
+}
+
+/* ==================================
+            11.Achievement Page
+   ================================== */
+
+#achievement-parallax {
+    margin-top: 55px;
+    background: url('../img/achievement.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    position: relative;
+    display: table;
+    width: 100%;
+    padding: 0;
+    color: white;
+}
+
+#achievement-parallax .wrapper {
+    max-height: 500px;
+}
+
+#achievement-parallax>.overlay:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 4;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#achievement-parallax h1 {
+    margin: auto;
+    bottom: 50%;
+    right: 0;
+    left: 0;
+    vertical-align: middle;
+    text-align: center;
+    position: absolute;
+    z-index: 5;
+}
+
+/* ==================================
+            11.Curriculum60 Page
+   ================================== */
+
+#cur60-header {
+    margin-top: 55px;
+    background-color: #ff7119;
+    padding-top: 35px;
+    padding-bottom: 35px;
+}
+
+#cur60-title,
+#cur60-title2,
+#cur60-title3 {
+    color: #fff;
+}
+
+#cur60-title,
+#cur60-title2,
+#cur60-title3,
+#cur60-title4 {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    transition-delay: 1.6s;
+}
+
+#cur60-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    transition-delay: 0.7s;
+}
+
+.numberCircle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: #fff;
+    border: 3px solid #666;
+    color: #666;
+    text-align: center;
+    font: 22px Prompt, sans-serif;
+    line-height: 1;
+    display: inline-block;
+}
+
+@media (max-width: 450px) {
+    .numberCircle {
+        display: none;
+    }
+}
+
+.card-gray {
+    background-color: #C0C0C0;
+    text-align: center;
+}
+
+.card-red {
+    background-color: #FF9797;
+    text-align: center;
+}
+
+.card-yellow {
+    background-color: #FFFF88;
+    text-align: center;
+}
+
+.card-green {
+    background-color: #A3E7D8;
+    text-align: center;
+}
+
+.card-blue {
+    background-color: #DBBFF7;
+    text-align: center;
+}
+
+.card-brown {
+    background-color: #CBAB8D;
+    text-align: center;
+}
+
+.card-orange {
+    background-color: #FFBE7D;
+    text-align: center;
+}
+
+.card-general {
+    text-align: center;
+}
